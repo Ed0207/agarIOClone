@@ -1,5 +1,5 @@
 const PlayerConfig = require('./class/playerConfig');
-const PlayerData = require('./class/PlayerData');
+const PlayerData = require('./class/playerData');
 const Player = require('./class/player');
 const Settings = require('./class/settings').Settings;
 const checkForOrbCollisions = require('./checkCollisions').checkForOrbCollisions;

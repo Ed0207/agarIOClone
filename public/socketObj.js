@@ -1,6 +1,7 @@
 // connect to the socket server
 console.log("socket obj");
-const socket = io.connect('http://localhost:9000');
+const connectionURL = 'https://agarioclone.onrender.com/';
+const socket = io.connect(connectionURL);
 
 
 const init = async ()=>{

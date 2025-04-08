@@ -2,6 +2,7 @@
 const express = require('express');
 const socketio = require('socket.io');
 const cors = require('cors');
+// const URL = 'http://localhost';
 const URL = 'https://agarioclone.onrender.com/';
 
 const app = express();

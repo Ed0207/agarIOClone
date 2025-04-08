@@ -61,11 +61,13 @@ const draw = ()=>{
 
 
 // moust listener for player mouse movement
-canvas.addEventListener('mousemove', (e)=>{
+canvas.addEventListener('touchmove', (e)=>{
+    
+    console.log("touch");
 
     const mousePosition = {
-        x: e.clientX,
-        y: e.clientY
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY
     };
 
     // arc tangent of player
@@ -90,4 +92,36 @@ canvas.addEventListener('mousemove', (e)=>{
 
     // console.log("player on move", player);
 
+})
+
+canvas.addEventListener('touchstart', (e)=>{
+    
+    console.log("touch");
+    
+    const mousePosition = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY
+    };
+
+    // arc tangent of player
+    const angleDeg = Math.atan2(mousePosition.y - (canvas.height/2), mousePosition.x - (canvas.width/2)) * 180 / Math.PI;
+
+    if(angleDeg >= 0 && angleDeg < 90){
+        xV = 1 - (angleDeg/90);
+        yV = -(angleDeg/90);
+    }else if(angleDeg >= 90 && angleDeg <= 180){
+        xV = -(angleDeg-90)/90;
+        yV = -(1 - ((angleDeg-90)/90));
+    }else if(angleDeg >= -180 && angleDeg < -90){
+        xV = (angleDeg+90)/90;
+        yV = (1 + ((angleDeg+90)/90));
+    }else if(angleDeg < 0 && angleDeg >= -90){
+        xV = (angleDeg+90)/90;
+        yV = (1 - ((angleDeg+90)/90));
+    }
+
+    player.xVector = xV;
+    player.yVector = yV;
+
+    // console.log("player on move", player);
 })

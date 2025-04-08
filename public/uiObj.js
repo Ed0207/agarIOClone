@@ -23,17 +23,23 @@ document.querySelector('.name-form').addEventListener('submit', (e) =>{
 
     // open up prompt next prompt
     loginModal.hide();
-    spawnModal.show();
+    // spawnModal.show();
     console.log('guest player ' + player.name + ' has joined');
-})
-
-
-document.querySelector('.start-game').addEventListener('click', (e) =>{
-
-    spawnModal.hide();
 
     const onStart = Array.from(document.querySelectorAll('.hiddenOnStart'));
     onStart.forEach(x => x.removeAttribute('hidden'));
     console.log("start game")
     init();
+
 })
+
+
+// document.querySelector('.start-game').addEventListener('click', (e) =>{
+
+//     spawnModal.hide();
+
+//     const onStart = Array.from(document.querySelectorAll('.hiddenOnStart'));
+//     onStart.forEach(x => x.removeAttribute('hidden'));
+//     console.log("start game")
+//     init();
+// })

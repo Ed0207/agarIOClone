@@ -61,7 +61,7 @@ socket.on('updateLeaderBoard', leaderBoard =>{
     })
     document.querySelector('.leader-board').innerHTML = "";
     leaderBoard.forEach(p=>{
-        if(p.name !== null){
+        if(p.name !== null && p.name !== undefined){
             document.querySelector('.leader-board').innerHTML +=
             `
                 <li class="leaderboard-player">${p.name} - ${p.score}</li>

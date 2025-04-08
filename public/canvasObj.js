@@ -58,6 +58,38 @@ const draw = ()=>{
     // recursive call for animation
     requestAnimationFrame(draw);
 }
+// moust listener for player mouse movement
+canvas.addEventListener('mousemove', (e)=>{
+    
+    const mousePosition = {
+        x: e.clientX,
+        y: e.clientY
+    };
+
+    // arc tangent of player
+    const angleDeg = Math.atan2(mousePosition.y - (canvas.height/2), mousePosition.x - (canvas.width/2)) * 180 / Math.PI;
+
+    if(angleDeg >= 0 && angleDeg < 90){
+        xV = 1 - (angleDeg/90);
+        yV = -(angleDeg/90);
+    }else if(angleDeg >= 90 && angleDeg <= 180){
+        xV = -(angleDeg-90)/90;
+        yV = -(1 - ((angleDeg-90)/90));
+    }else if(angleDeg >= -180 && angleDeg < -90){
+        xV = (angleDeg+90)/90;
+        yV = (1 + ((angleDeg+90)/90));
+    }else if(angleDeg < 0 && angleDeg >= -90){
+        xV = (angleDeg+90)/90;
+        yV = (1 - ((angleDeg+90)/90));
+    }
+
+    player.xVector = xV;
+    player.yVector = yV;
+
+    // console.log("player on move", player);
+
+})
+
 
 
 // moust listener for player mouse movement
